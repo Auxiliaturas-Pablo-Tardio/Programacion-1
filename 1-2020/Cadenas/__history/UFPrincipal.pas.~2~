@@ -1,0 +1,60 @@
+unit UFPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs,UCCadena, Vcl.Menus, Vcl.StdCtrls;
+
+type
+  TForm1 = class(TForm)
+    MainMenu1: TMainMenu;
+    Metodos1: TMenuItem;
+    Longitud1: TMenuItem;
+    CargarCadena1: TMenuItem;
+    MostrarCadena1: TMenuItem;
+    AdicionarCaracter1: TMenuItem;
+    EliminarCaracter1: TMenuItem;
+    InsertarCaracter1: TMenuItem;
+    InvertirCaracteres1: TMenuItem;
+    Label1: TLabel;
+    Edit1: TEdit;
+    procedure Longitud1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure AdicionarCaracter1Click(Sender: TObject);
+    procedure MostrarCadena1Click(Sender: TObject);
+  private
+    { Private declarations }
+    C : Cadena;
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.AdicionarCaracter1Click(Sender: TObject);
+begin
+     C.AdChr(Edit1.Text[1]);
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+     C:=Cadena.Create;
+end;
+
+procedure TForm1.Longitud1Click(Sender: TObject);
+begin
+     Label1.Caption:='La longitud es:'+IntToStr(C.Long);
+end;
+
+procedure TForm1.MostrarCadena1Click(Sender: TObject);
+begin
+     Label1.Caption:=C.toStr;
+end;
+
+end.

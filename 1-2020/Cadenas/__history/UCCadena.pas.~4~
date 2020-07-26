@@ -1,0 +1,81 @@
+unit UCCadena;
+
+interface
+Const
+     MaxC=1024;
+Type
+    Cadena = Class
+      Private
+             Longitud : Word;
+             Caracteres: Array[1..MaxC] of Char;
+      Public
+            Function Long:Word;
+            Procedure AdChr(c:char);
+            Procedure DelChr(p:word);
+            Procedure InsChr(p:word; c:char);
+            Procedure Invert;
+            Function  toStr:String;
+    End;
+
+implementation
+
+{ Cadena }
+
+procedure Cadena.AdChr(c: char);
+begin
+     Inc(Longitud);
+     Caracteres[Longitud]:=c;
+end;
+
+procedure Cadena.DelChr(p: word);
+var
+  I: Word;
+begin
+     for I := p to Longitud-1 do
+        Caracteres[i]:=Caracteres[i+1];
+     Dec(Longitud);
+end;
+
+procedure Cadena.InsChr(p: word; c: char);
+var
+  I: Word;
+begin
+     Inc(Longitud);
+     for I := Longitud downto p+1 do
+        Caracteres[I]:=Caracteres[p-1];
+     Caracteres[p]:=c;
+
+end;
+
+procedure Cadena.Invert;
+Var
+  i,f : Word;
+  c : Char;
+begin
+     i:=1;f:=Longitud;
+     while i<f do
+     Begin
+          c:=Caracteres[i];
+          Caracteres[i]:=Caracteres[f];
+          Caracteres[f]:=c;
+          inc(i);dec(f);
+     End;
+end;
+
+function Cadena.Long: Word;
+begin
+     Result:=Longitud;
+end;
+
+function Cadena.toStr: String;
+var
+  I: Integer;
+  s: String;
+begin
+      s:='';
+      for I := 1 to Longitud do
+        s:=s+Caracteres[i];
+      Result:=s;
+end;
+
+end.
