@@ -24,6 +24,10 @@ type
     Palabrademayorlongitud1: TMenuItem;
     Enesimapalabra1: TMenuItem;
     Edit2: TEdit;
+    ResultadoDeExpresion1: TMenuItem;
+    SumaFloat011: TMenuItem;
+    SumaDeFloat1: TMenuItem;
+    EdadMayor1: TMenuItem;
     procedure Longitud1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure AdicionarCaracter1Click(Sender: TObject);
@@ -33,6 +37,10 @@ type
     procedure SiguientePalabra1Click(Sender: TObject);
     procedure Palabrademayorlongitud1Click(Sender: TObject);
     procedure Enesimapalabra1Click(Sender: TObject);
+    procedure ResultadoDeExpresion1Click(Sender: TObject);
+    procedure SumaFloat011Click(Sender: TObject);
+    procedure SumaDeFloat1Click(Sender: TObject);
+    procedure EdadMayor1Click(Sender: TObject);
   private
     { Private declarations }
     C : Cadena;
@@ -63,6 +71,11 @@ begin
      Label1.Caption:='La cantidad de palabras es:'+InttoStr(C.countWord);
 end;
 
+procedure TForm1.EdadMayor1Click(Sender: TObject);
+begin
+  ShowMessage(IntToStr(C.sacarMayorEdad));
+end;
+
 procedure TForm1.Enesimapalabra1Click(Sender: TObject);
 begin
      Label1.Caption:=C.nWord(StrToInt(Edit2.Text));
@@ -90,9 +103,28 @@ begin
      Label1.Caption:=C.WordMay;
 end;
 
+procedure TForm1.ResultadoDeExpresion1Click(Sender: TObject);
+var
+ mensaje:String;
+begin
+mensaje:=C.calcularExpresion();
+ShowMessage(mensaje);
+
+end;
+
 procedure TForm1.SiguientePalabra1Click(Sender: TObject);
 begin
      Label1.Caption:=C.NextWord(k);
+end;
+
+procedure TForm1.SumaDeFloat1Click(Sender: TObject);
+begin
+     ShowMessage(FloatToStr( C.sumarFloat()));
+end;
+
+procedure TForm1.SumaFloat011Click(Sender: TObject);
+begin
+          ShowMessage( FloatToStr(C.sumaDeCadenaFloat()));
 end;
 
 end.

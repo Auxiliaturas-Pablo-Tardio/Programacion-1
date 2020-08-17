@@ -19,6 +19,7 @@ type
     CovertiraHexadecimal1: TMenuItem;
     ConvertiraBinario21: TMenuItem;
     ImprimirDigBinprehexa1: TMenuItem;
+    Unidadaliteral1: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure ObtenerValor1Click(Sender: TObject);
     procedure CambiarValor1Click(Sender: TObject);
@@ -26,6 +27,7 @@ type
     procedure CovertiraBinario1Click(Sender: TObject);
     procedure ConvertiraBinario21Click(Sender: TObject);
     procedure ImprimirDigBinprehexa1Click(Sender: TObject);
+    procedure Unidadaliteral1Click(Sender: TObject);
   private
     { Private declarations }
     N : Numero;
@@ -76,6 +78,11 @@ end;
 procedure TForm1.ObtenerValor1Click(Sender: TObject);
 begin
       Label1.Caption:='El valor del numero es:'+IntToStr(N.getValor);
+end;
+
+procedure TForm1.Unidadaliteral1Click(Sender: TObject);
+begin
+      ShowMessage(N.convertirALiteral());
 end;
 
 end.

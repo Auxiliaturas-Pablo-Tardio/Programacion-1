@@ -61,6 +61,10 @@ object Form1: TForm1
         Caption = 'Imprimir Dig Bin pre hexa'
         OnClick = ImprimirDigBinprehexa1Click
       end
+      object Unidadaliteral1: TMenuItem
+        Caption = 'Unidad a literal'
+        OnClick = Unidadaliteral1Click
+      end
     end
   end
 end

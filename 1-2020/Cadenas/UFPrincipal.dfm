@@ -18,7 +18,7 @@ object Form1: TForm1
   object Label1: TLabel
     Left = 184
     Top = 64
-    Width = 1
+    Width = 4
     Height = 25
     Font.Charset = ANSI_CHARSET
     Font.Color = clBlue
@@ -86,6 +86,22 @@ object Form1: TForm1
       object Enesimapalabra1: TMenuItem
         Caption = 'Enesima palabra'
         OnClick = Enesimapalabra1Click
+      end
+      object ResultadoDeExpresion1: TMenuItem
+        Caption = 'ResultadoDeExpresion'
+        OnClick = ResultadoDeExpresion1Click
+      end
+      object SumaFloat011: TMenuItem
+        Caption = 'SumaFloat01'
+        OnClick = SumaFloat011Click
+      end
+      object SumaDeFloat1: TMenuItem
+        Caption = 'SumaDeFloat'
+        OnClick = SumaDeFloat1Click
+      end
+      object EdadMayor1: TMenuItem
+        Caption = 'EdadMayor'
+        OnClick = EdadMayor1Click
       end
     end
   end

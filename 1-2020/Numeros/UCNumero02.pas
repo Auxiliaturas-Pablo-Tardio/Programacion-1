@@ -6,6 +6,9 @@ Type
       Numero = Class
         Private
                Valor : Cardinal;
+    procedure decenaLiteral(var p: string; dig: Cardinal; digAnterior: Integer);
+    procedure centenaLiteral(var p: string; dig: Cardinal; digAnterior: Integer);
+    procedure addConectorDecena(digAnterior: Integer; var p: string);
         Public
                Function getValor : Cardinal;
                Procedure setValor(V:Cardinal);
@@ -18,6 +21,8 @@ Type
                Function digitoBinAHexa(stringBinaria:String): String;
                Function convertirALetraHexa(valor:Integer)  :String;
                Function convertirALiteral() :String  ;
+               Function getDigitoConvertido(dig:Cardinal;digAnterior:integer;pos:integer) : String;
+               procedure unidadesLiteral(var p:string;dig:Cardinal;digAnterior:integer); 
       End;
 
 implementation
@@ -195,6 +200,177 @@ end;
 //separo el numero
 //lo paso a la funcion literal
 
+function Numero.convertirALiteral() :String;
+var
+nAux:Cardinal;
+p :string;
+dig: Cardinal;
+pos: integer;
+digAnterior:Cardinal ;
+begin
+   p:='';
+   nAux:=Valor;
+   pos:=1;
+   digAnterior:=0;
+   while nAux>0 do
+   begin
+       dig:=nAux mod 10;
+       p:=getDigitoConvertido(dig,digAnterior,pos)+p;
+       if(p='Ciento ')then
+       p:='cien';
+       pos:=pos+1 ;
+       digAnterior:=dig;
+       nAux:=nAux div 10;
+       
+   end;
+   Result:=p;
+end;
+function Numero.getDigitoConvertido
+( dig:Cardinal; digAnterior:integer;pos:integer):String;
+var p:string;
+begin
+p:='';
+    case pos of
+    1:unidadesLiteral(p,dig,digAnterior);
+    2: decenaLiteral(p, dig, digAnterior);
+  
+    3: centenaLiteral(p, dig, digAnterior);
+    4: begin
+      unidadesLiteral(p,dig,digAnterior);
+      p:=p+'mil '
+      end;
+    5: begin
+      decenaLiteral(p,dig,digAnterior);
+      p:=p+'mil '
+      end;
+    6: begin
+      centenaLiteral(p,dig,digAnterior);
+      p:=p+'mil '
+      end;
+               
+      
 
+    end;
+    
+Result:=p;
+end;
+
+procedure Numero.unidadesLiteral
+(var p: string; dig: Cardinal; digAnterior: Integer);
+begin
+      
+         case dig of
+             0:p:='';
+             1:p:='Uno';
+             2:p:='Dos';
+             3:p:='Tres';
+             4:p:='Cuatro';
+             5:p:='Cinco';
+             6:p:='Seis';
+             7:p:='Siete';
+             8:p:='Ocho';
+             9:p:='Nueve';
+             
+         end;
+end;
+
+procedure Numero.addConectorDecena(digAnterior: Integer; var p: string);
+begin
+  case digAnterior of
+    0:
+      p := p + ' ';
+    1..9:
+      p := p + ' y ';
+  end;
+end;
+
+procedure Numero.centenaLiteral(var p: string; dig: Cardinal; digAnterior: Integer);
+begin
+
+    case dig of
+      1:
+        begin
+          case digAnterior of
+            0..9:
+              p := 'Ciento';
+          end;
+        end;
+      2:
+        p := 'Doscientos';
+      3:
+        p := 'Trescientos';
+      4:
+        p := 'Cuatrocientos';
+      5:
+        p := 'Quinientos';
+      6:
+        p := 'Seiscientos';
+      7:
+        p := 'Setecientos';
+      8:
+        p := 'Ochecientos';
+      9:
+        p := 'Novecientos';
+    end;
+  p:=p+' ';
+end;
+
+
+procedure Numero.decenaLiteral(var p: string; dig: Cardinal; digAnterior: Integer);
+begin
+  begin
+    case dig of
+      1:
+        begin
+          case digAnterior of
+            0:
+              p := 'diez';
+          end;
+        end;
+      2:
+        begin
+          case digAnterior of
+            0:
+              p := 'Veinte';
+            1..9:
+              p := 'Veinti';
+          end;
+        end;
+      3:begin
+        p := 'Treinta';
+      addConectorDecena(digAnterior, p);
+      end;
+
+      4:begin
+          p := 'Cuarenta';
+          addConectorDecena(digAnterior, p);
+        end;
+      5:begin
+        p := 'Cincuenta';
+        addConectorDecena(digAnterior, p);
+        end;
+      6:begin
+        p := 'Sesenta';
+        addConectorDecena(digAnterior, p);
+        end;
+
+      7: begin
+         p := 'Setenta';
+        addConectorDecena(digAnterior, p);
+        end;
+
+      8:  begin
+         p := 'Ochenta';
+        addConectorDecena(digAnterior, p);
+        end;
+
+      9:  begin
+        p := 'Noventa';
+        addConectorDecena(digAnterior, p);
+        end;
+
+    end;
+  end;
+end;
 end.
 
