@@ -63,7 +63,7 @@ object frmPrincipal: TfrmPrincipal
         Caption = 'Insertar Elemento'
       end
       object EliminarElemento1: TMenuItem
-        Caption = 'Eliminar Elemento'
+        Caption = 'Eliminar Elemento de pos'
       end
       object ModificarElemento1: TMenuItem
         Caption = 'Modificar Elemento'
@@ -76,6 +76,42 @@ object frmPrincipal: TfrmPrincipal
       end
       object PromediodeElementos1: TMenuItem
         Caption = 'Promedio de Elementos'
+      end
+      object BuscarElemento1: TMenuItem
+        Caption = 'Buscar Elemento'
+        OnClick = BuscarElemento1Click
+      end
+      object Borrarelemento1: TMenuItem
+        Caption = 'Borrar elemento'
+        OnClick = Borrarelemento1Click
+      end
+      object SegmentarVector1: TMenuItem
+        Caption = 'Segmentar Vector'
+        OnClick = SegmentarVector1Click
+      end
+      object Verificariguales1: TMenuItem
+        Caption = 'Verificar iguales Rango'
+        OnClick = Verificariguales1Click
+      end
+      object VerificarOrdenRango1: TMenuItem
+        Caption = 'Verificar Orden Rango'
+        OnClick = VerificarOrdenRango1Click
+      end
+      object ContarDiferentes1: TMenuItem
+        Caption = 'ContarDiferentes'
+        OnClick = ContarDiferentes1Click
+      end
+      object contarDiferentesConRango1: TMenuItem
+        Caption = 'contarDiferentesConRango'
+        OnClick = contarDiferentesConRango1Click
+      end
+      object multiplosMenor1: TMenuItem
+        Caption = 'multiplos Menor'
+        OnClick = multiplosMenor1Click
+      end
+      object elementodemenorFrec1: TMenuItem
+        Caption = 'elemento de menor Frec'
+        OnClick = elementodemenorFrec1Click
       end
     end
   end
