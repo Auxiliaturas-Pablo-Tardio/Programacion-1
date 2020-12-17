@@ -13,7 +13,7 @@ type
     procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
-    computadoraLaptopASUS,compuLENOVO : Computadora;
+    computadoraLaptopASUS,compuLENOVO,computadoraConstruida : Computadora;
   public
     { Public declarations }
 

@@ -1,7 +1,8 @@
 unit UCComputadora;
 
 interface
-Type    Computadora=Class
+Type
+  Computadora=Class
 Private
     //Atributos de la clase
     ram: integer;
@@ -13,6 +14,8 @@ Public
      Function mostrarPantalla: String;
      //Function sonar: integer;
      Procedure setMonitor( nuevoMonitor: String);
+     Function getMonitor (): String;
+
 End;
 
 implementation
@@ -20,6 +23,12 @@ Procedure Computadora.setMonitor( nuevoMonitor: String);
 begin
    monitor:=nuevoMonitor;
 end;
+
+function Computadora.getMonitor: String;
+begin
+   Result:=monitor;
+end;
+
 Function Computadora.mostrarPantalla :String;
 var s: String;
 begin

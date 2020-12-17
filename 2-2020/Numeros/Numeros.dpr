@@ -1,9 +1,9 @@
-program ComputadoraProyecto;
+program Numeros;
 
 uses
   Vcl.Forms,
-  ComputadoraDesign in 'ComputadoraDesign.pas' {Form1},
-  UCComputadora in 'UCComputadora.pas';
+  UFormNumeros in 'UFormNumeros.pas' {Form1},
+  UCNumeros in 'UCNumeros.pas';
 
 {$R *.res}
 
