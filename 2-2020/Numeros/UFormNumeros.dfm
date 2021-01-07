@@ -15,6 +15,34 @@ object Form1: TForm1
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
+  object Label1: TLabel
+    Left = 176
+    Top = 80
+    Width = 50
+    Height = 13
+    Caption = 'Mi Numero'
+  end
+  object Label2: TLabel
+    Left = 376
+    Top = 80
+    Width = 36
+    Height = 13
+    Caption = 'Mi Base'
+  end
+  object Edit1: TEdit
+    Left = 144
+    Top = 40
+    Width = 121
+    Height = 21
+    TabOrder = 0
+  end
+  object Edit2: TEdit
+    Left = 344
+    Top = 40
+    Width = 121
+    Height = 21
+    TabOrder = 1
+  end
   object MainMenu1: TMainMenu
     Left = 24
     Top = 16
@@ -46,6 +74,14 @@ object Form1: TForm1
       object Sumadedigitos1: TMenuItem
         Caption = 'Suma de digitos'
         OnClick = Sumadedigitos1Click
+      end
+      object N02DecimalaBaseN1: TMenuItem
+        Caption = '02 Decimal a Base N'
+        OnClick = N02DecimalaBaseN1Click
+      end
+      object N02v2DecimalaBaseN1: TMenuItem
+        Caption = '02 v2 Decimal a Base N'
+        OnClick = N02v2DecimalaBaseN1Click
       end
     end
   end
