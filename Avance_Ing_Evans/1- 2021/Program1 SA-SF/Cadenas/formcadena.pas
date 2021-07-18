@@ -5,13 +5,16 @@ unit formCadena;
 interface
 
 uses
-   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Menus, Grids,UConjunto,UCadena,UVector,UNatural;
+   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Menus, Grids,UConjunto,UCadena,UVector,UNatural,UMatriz,UMatrizDecimal;
 
 type
 
   { TForm1 }
 
   TForm1 = class(TForm)
+    MatrizRealDescargarButton: TButton;
+    DescargarMatrizButton: TButton;
+    CargarMatrizButton: TButton;
     DescNumButton: TButton;
     CargarNumeButton: TButton;
     cargarVectButton: TButton;
@@ -19,7 +22,9 @@ type
     CargarButton: TButton;
     DescargarButton: TButton;
     MainMenu1: TMainMenu;
+    MatrizRealButton: TButton;
     MenuItem1: TMenuItem;
+    MenuItem10: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
@@ -27,6 +32,9 @@ type
     MenuItem6: TMenuItem;
     MenuItem7: TMenuItem;
     MenuItem8: TMenuItem;
+    MenuItem9: TMenuItem;
+    procedure DescargarMatrizButtonClick(Sender: TObject);
+    procedure CargarMatrizButtonClick(Sender: TObject);
     procedure CargarButtonClick(Sender: TObject);
     procedure CargarNumeButtonClick(Sender: TObject);
     procedure cargarVectButtonClick(Sender: TObject);
@@ -34,6 +42,9 @@ type
     procedure DescargarvectorButtonClick(Sender: TObject);
     procedure DescNumButtonClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure MatrizRealButtonClick(Sender: TObject);
+    procedure MatrizRealDescargarButtonClick(Sender: TObject);
+    procedure MenuItem10Click(Sender: TObject);
     procedure MenuItem1Click(Sender: TObject);
     procedure MenuItem2Click(Sender: TObject);
     procedure MenuItem3Click(Sender: TObject);
@@ -46,6 +57,9 @@ type
       cad2:Cadena;
       vec:Vector;
       num:Natural;
+      mat:Matriz;
+      mat2:Matriz;
+      matreal:MatrizReal;
   public
 
   end;
@@ -65,6 +79,42 @@ begin
   cad:=cad.crear();
  s:=inputBox('','','');
  cad.cargarString(s);
+end;
+
+procedure TForm1.CargarMatrizButtonClick(Sender: TObject);
+var f,c,ele,i,j:integer;
+  sf,sc:string;
+begin
+ sf:=InputBox('Int Filas','','');
+ sc:=InputBox('Int Cols','','')  ;
+ if( (sf.length=0) or (sc.Length=0) )then
+  begin
+    ShowMessage('Por favor no ponga vacio')
+  end
+ else
+ begin
+          f:=StrToInt(sf) ;
+        c:=StrToInt(sc) ;
+        mat.setFilCols(f,c);
+        //Mat2
+        mat2.setFilCols(f,c);
+        for i:=1 to f do
+        begin
+            for j:=1 to c do
+            begin
+               ele:=StrToInt(InputBox('Int elem fila: '+IntToStr(i)+' columna: '+IntToStr(j),'','')) ;
+               mat.setElem(i,j,ele);
+               mat2.setElem(i,j,ele);
+            end;
+        end;
+     end;
+
+
+end;
+
+procedure TForm1.DescargarMatrizButtonClick(Sender: TObject);
+begin
+  ShowMessage(mat.myToString());
 end;
 
 procedure TForm1.CargarNumeButtonClick(Sender: TObject);
@@ -110,6 +160,49 @@ begin
        cad2:= cadena.crear();
        vec:=Vector.crear();
        num:=Natural.crear();
+       mat:=Matriz.crear();
+       mat2:= Matriz.crear();
+       matreal:=MatrizReal.crear();
+end;
+
+procedure TForm1.MatrizRealButtonClick(Sender: TObject);
+var f,c,ele,i,j:integer;
+  sf,sc:string;
+begin
+ sf:=InputBox('Int Filas','','');
+ sc:=InputBox('Int Cols','','')  ;
+ if( (sf.length=0) or (sc.Length=0) )then
+  begin
+    ShowMessage('Por favor no ponga vacio')
+  end
+ else
+ begin
+          f:=StrToInt(sf) ;
+        c:=StrToInt(sc) ;
+        matreal.setFilCols(f,c);
+
+        for i:=1 to f do
+        begin
+            for j:=1 to c do
+            begin
+               ele:=StrToInt(InputBox('Int elem fila: '+IntToStr(i)+' columna: '+IntToStr(j),'','')) ;
+               matreal.setElem(i,j,ele);
+
+            end;
+        end;
+     end;
+end;
+
+procedure TForm1.MatrizRealDescargarButtonClick(Sender: TObject);
+begin
+ matreal.resolverEcuacion();
+ ShowMessage(matreal.myToString());
+
+end;
+
+procedure TForm1.MenuItem10Click(Sender: TObject);
+begin
+  mat.sumarAMiMatriz(mat2);
 end;
 
 procedure TForm1.MenuItem1Click(Sender: TObject);

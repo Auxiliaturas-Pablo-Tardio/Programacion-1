@@ -31,7 +31,7 @@
         <PackageName Value="LCL"/>
       </Item1>
     </RequiredPackages>
-    <Units Count="6">
+    <Units Count="8">
       <Unit0>
         <Filename Value="proyectoCadena.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -40,6 +40,7 @@
         <Filename Value="formcadena.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="Form1"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="formCadena"/>
       </Unit1>
@@ -63,6 +64,16 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="UVector"/>
       </Unit5>
+      <Unit6>
+        <Filename Value="umatriz.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UMatriz"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="umatrizdecimal.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UMatrizDecimal"/>
+      </Unit7>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
