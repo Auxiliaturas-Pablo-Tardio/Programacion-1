@@ -25,6 +25,9 @@ type
     MatrizRealButton: TButton;
     MenuItem1: TMenuItem;
     MenuItem10: TMenuItem;
+    MenuItem11: TMenuItem;
+    MenuItem12: TMenuItem;
+    MenuItem13: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
@@ -45,6 +48,9 @@ type
     procedure MatrizRealButtonClick(Sender: TObject);
     procedure MatrizRealDescargarButtonClick(Sender: TObject);
     procedure MenuItem10Click(Sender: TObject);
+    procedure MenuItem11Click(Sender: TObject);
+    procedure MenuItem12Click(Sender: TObject);
+    procedure MenuItem13Click(Sender: TObject);
     procedure MenuItem1Click(Sender: TObject);
     procedure MenuItem2Click(Sender: TObject);
     procedure MenuItem3Click(Sender: TObject);
@@ -195,7 +201,7 @@ end;
 
 procedure TForm1.MatrizRealDescargarButtonClick(Sender: TObject);
 begin
- matreal.resolverEcuacion();
+ //matreal.resolverEcuacion();
  ShowMessage(matreal.myToString());
 
 end;
@@ -203,6 +209,81 @@ end;
 procedure TForm1.MenuItem10Click(Sender: TObject);
 begin
   mat.sumarAMiMatriz(mat2);
+end;
+
+procedure TForm1.MenuItem11Click(Sender: TObject);
+var c,a,b :vector;
+  dimC,dimA,dimB,i,ele:integer;
+begin
+ c:=vector.crear();
+ a:=vector.crear();
+ b:=vector.crear();
+ //Cargar los 3 vectores
+ //PARA C
+
+ dimC:=StrToInt(InputBox('introduzca dim del vector C ','',''));
+ c.setDim(dimC);
+ for i:=1 to c.getDim() do
+ begin
+      ele:=StrToInt(InputBox('introduzca elem del vector c','',''));
+      C.setEle(i,ele);
+ end;
+ //Para A
+ dimA:=StrToInt(InputBox('introduzca dim del vector a ','',''));
+ a.setDim(dimA);
+ for i:=1 to a.getDim() do
+ begin
+      ele:=StrToInt(InputBox('introduzca elem del vector a','',''));
+      a.setEle(i,ele);
+ end;
+ //PARA B
+ dimB:=StrToInt(InputBox('introduzca dim del vector b ','',''));
+ b.setDim(dimB);
+ for i:=1 to b.getDim() do
+ begin
+      ele:=StrToInt(InputBox('introduzca elem del vector b','',''));
+      b.setEle(i,ele);
+ end;
+
+ vec.intercalar(a,b,c);
+
+
+end;
+
+procedure TForm1.MenuItem12Click(Sender: TObject);
+begin
+  matreal.ordenarCompDiagPrinc();
+end;
+
+procedure TForm1.MenuItem13Click(Sender: TObject);
+var a,b,c:vector;
+  ele,dimA,dimB,dimC,i:integer;
+
+begin
+
+ a:=vector.crear();
+ b:=vector.crear();
+ //Cargar los 3 vectores
+ //PARA C
+
+
+ //Para A
+ dimA:=StrToInt(InputBox('introduzca dim del vector a ','',''));
+ a.setDim(dimA);
+ for i:=1 to a.getDim() do
+ begin
+      ele:=StrToInt(InputBox('introduzca elem del vector a','',''));
+      a.setEle(i,ele);
+ end;
+ //PARA B
+ dimB:=StrToInt(InputBox('introduzca dim del vector b ','',''));
+ b.setDim(dimB);
+ for i:=1 to b.getDim() do
+ begin
+      ele:=StrToInt(InputBox('introduzca elem del vector b','',''));
+      b.setEle(i,ele);
+ end;
+ vec.intercalarOrdenadoV2(a,b);
 end;
 
 procedure TForm1.MenuItem1Click(Sender: TObject);

@@ -17,6 +17,8 @@ type
 
   { Matriz }
 
+  { MatrizReal }
+
   MatrizReal = class
   private
     filas: integer;
@@ -38,6 +40,10 @@ type
     procedure dividirFila(filaActual:integer;divisor:Real);
      procedure  multiplicarFilayAdicion(mult:Real; filaMul, filaDestino:integer);
      procedure intercambiarFilas(filaA,filaB:integer);
+     procedure ordenarCompDiagPrinc();
+     procedure ordenarTriangSupDer();
+     procedure ordenarTriangInfIzq();
+     procedure intercambiar(af,ac,bf,bc:integer);
   end;
 
 implementation
@@ -168,5 +174,90 @@ begin
   end;
 
 end;
+
+procedure MatrizReal.ordenarCompDiagPrinc();
+begin
+    //llamar a ordenar Triang Sup Der
+  ordenarTriangSupDer();
+       //llamar a ordenar Triang Inf Izq
+       {$IFDEF MSWINDOWS}
+       ordenarTriangInfIzq()
+       {$ENDIF}
+       {$IFDEF UNIX}
+       ordenarTriangInfIzq()
+       {$ENDIF}
+end;
+
+procedure MatrizReal.ordenarTriangSupDer();
+var i,j,oi,oj,ji,inicioCol,oInicioCol,incioColPivote:integer;
+begin
+   inicioCol:=2;
+
+   for i:=1 to filas do
+   begin
+     for j:=inicioCol to columnas do
+     begin
+       // -----
+         oInicioCol:=inicioCol;
+         incioColPivote:=j ;
+         for oi:=i to filas do
+           begin
+
+             for oj:=incioColPivote to columnas do
+             begin
+              if( elem[oi][oj]< elem[i,j]) then
+                  intercambiar(oi,oj,i,j);
+
+             end;
+
+             oInicioCol:=oInicioCol+1;
+             incioColPivote:=oInicioCol;
+           end;
+         // -----
+     end;
+     inicioCol:=inicioCol+1;
+   end;
+end;
+
+
+procedure MatrizReal.ordenarTriangInfIzq();
+var i,j,oi,oj,ji,finalCol,oFinalCol,incioColPivote:integer;
+begin
+   finalCol:=1;
+
+
+   for i:=2 to filas do
+   begin
+     for j:=1 to finalCol do
+     begin
+       // -----
+         oFinalCol:=finalCol;
+         incioColPivote:=j;
+         for oi:=i to filas do
+           begin
+             for oj:=incioColPivote to oFinalCol do
+             begin
+              if( elem[oi][oj]< elem[i,j]) then
+                  intercambiar(oi,oj,i,j);
+
+             end;
+             incioColPivote:=1;
+             oFinalCol:=oFinalCol+1;
+           end;
+         // -----
+     end;
+     finalCol:=finalCol+1;
+   end;
+end;
+
+procedure MatrizReal.intercambiar(af, ac, bf, bc:integer);
+var x:real;
+begin
+  x:=elem[af,ac];
+  elem[af,ac]:=elem[bf,bc];
+  elem[bf,bc]:=x;
+
+end;
+
 
 end.

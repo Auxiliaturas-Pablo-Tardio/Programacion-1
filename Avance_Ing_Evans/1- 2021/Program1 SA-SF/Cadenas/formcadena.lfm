@@ -125,6 +125,18 @@ object Form1: TForm1
         Caption = 'OrdenarCustom'
         OnClick = MenuItem6Click
       end
+      object MenuItem11: TMenuItem
+        Caption = 'Intercalar C A B'
+        OnClick = MenuItem11Click
+      end
+      object MenuItem12: TMenuItem
+        Caption = 'Orde Comp DP'
+        OnClick = MenuItem12Click
+      end
+      object MenuItem13: TMenuItem
+        Caption = 'IntercalarOrd A B'
+        OnClick = MenuItem13Click
+      end
     end
     object MenuItem7: TMenuItem
       Caption = 'MenuItem7'
