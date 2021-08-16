@@ -5,7 +5,8 @@ unit FormAlumnos;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls,UArchivoAlumnos,UPersonaRecord;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Menus,
+  UArchivoAlumnos, UPersonaRecord,UArchivoEmpleados,UEmpleadoRecord;
 
 type
 
@@ -15,16 +16,23 @@ type
     Button1: TButton;
     AgregarDatosButton: TButton;
     Edit111DomButton: TButton;
+    ListBox1: TListBox;
+    MainMenu1: TMainMenu;
+    MenuItem1: TMenuItem;
+    MenuItem2: TMenuItem;
+    MenuItem3: TMenuItem;
     NuevoArchivoButton: TButton;
     procedure AgregarDatosButtonClick(Sender: TObject);
     procedure Edit111DomButtonClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure MenuItem2Click(Sender: TObject);
+    procedure MenuItem3Click(Sender: TObject);
     procedure NuevoArchivoButtonClick(Sender: TObject);
   private
 
   public
     faa:ArchivoAlumnos;
-
+    archivoBE:ArchivoBEmpleado;
   end;
 
 var
@@ -71,8 +79,67 @@ begin
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
+var re:Empleado;
 begin
   faa:=ArchivoAlumnos.create;
+  //ARCHIVO BINARIO EMPLEADO
+
+  archivoBE:=ArchivoBEmpleado.create;
+  archivoBe.setNom('sueldo');
+  archivoBe.setExt('dat');
+  archivoBE.crear();
+  re.nombre:='Juan Perez';
+  re.sexo:='H';
+  re.cargo:='Tecnico';
+  re.sueldo:=500;
+  re.moneda:='$us';
+  archivoBE.escribirEmpleado(re);
+
+
+  re.nombre:='Josefina Mojica';
+  re.sexo:='M';
+  re.cargo:='Tecnico';
+  re.sueldo:=200;
+  re.moneda:='$us';
+
+  archivoBE.escribirEmpleado(re);
+
+  re.nombre:='Maria Nuñez';
+  re.sexo:='M';
+  re.cargo:='Tecnico';
+  re.sueldo:=300;
+  re.moneda:='$us';
+
+  archivoBE.escribirEmpleado(re);
+
+
+  re.nombre:='Marco Condori';
+  re.sexo:='H';
+  re.cargo:='Tecnico';
+  re.sueldo:=1000;
+  re.moneda:='$us';
+
+  archivoBE.escribirEmpleado(re);
+
+
+  re.nombre:='Ana Maria';
+  re.sexo:='M';
+  re.cargo:='Tecnico';
+  re.sueldo:=800;
+  re.moneda:='$us';
+
+  archivoBE.escribirEmpleado(re);
+  archivoBE.cerrar();
+end;
+
+procedure TForm1.MenuItem2Click(Sender: TObject);
+begin
+  archivoBE.listarMujeres(ListBox1);
+end;
+
+procedure TForm1.MenuItem3Click(Sender: TObject);
+begin
+  archivoBE.listarDosSueldos(ListBox1);
 end;
 
 procedure TForm1.AgregarDatosButtonClick(Sender: TObject);

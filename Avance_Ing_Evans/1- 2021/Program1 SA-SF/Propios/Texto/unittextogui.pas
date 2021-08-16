@@ -5,7 +5,8 @@ unit unitTextoGUI;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls,uTexto,UCadena;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Menus,
+  uTexto, UCadena;
 
 type
 
@@ -14,14 +15,19 @@ type
   TForm1 = class(TForm)
     Ejercicio7: TButton;
     cargarArchivoTexto: TButton;
+    MainMenu1: TMainMenu;
+    MenuItem1: TMenuItem;
+    MenuItem2: TMenuItem;
 
     procedure Ejercicio7Click(Sender: TObject);
     procedure cargarArchivoTextoClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure MenuItem2Click(Sender: TObject);
   private
 
   public
       miAT:Texto;
+      aTEmpleados:Texto;
   end;
 
 var
@@ -116,6 +122,51 @@ begin
     miAT.escribirLinea('Juan Pereza aterra');
     miAT.escribirLinea('Juan Holan que tal');
     miAT.cerrar();
+
+   aTEmpleados:=Texto.create();
+   aTEmpleados.setNom('Empleados');
+   aTEmpleados.setExt('txt');
+   aTEmpleados.crear();//Abrir
+   aTEmpleados.escribirLinea('Juan Perez H Tecnico 500 $us');
+   aTEmpleados.escribirLinea('Josefina Mojica M Secretaria 200 $us');
+   aTEmpleados.escribirLinea('Maria Nuñez M Experto 300 $us');
+   aTEmpleados.escribirLinea('Marco Condori H Jefe 1000 $us');
+   aTEmpleados.escribirLinea('Ana Maria M Profesional 800 $us');
+   aTEmpleados.cerrar();
+end;
+
+procedure TForm1.MenuItem2Click(Sender: TObject);
+var lineaActual:Cadena;
+    sSueldos:string;
+    cant:integer;
+    sueldoNumerico,sum,mayor:Real;
+
+begin
+     mayor:=0;
+     cant:=0;
+     sum:=0;
+     aTEmpleados.abrir();
+     while(NOT aTEmpleados.fin())do
+     begin
+          lineaActual:=Cadena.Create();
+          lineaActual.cargarString(aTEmpleados.leerLinea());
+          //linea Actual es una string
+          sSueldos:=lineaActual.obtenerPalPos(5);
+          sueldoNumerico:=StrToFloat(sSueldos);
+          if(sueldoNumerico>mayor)then
+           begin
+              mayor:=sueldoNumerico;
+           end;
+          //acumulamos
+          sum:=sum+sueldoNumerico;
+          cant:=cant+1;
+
+     end;
+
+     sum:=sum/cant;
+     ShowMessage('El promedio de sueldos es'+FloatToStr(sum));
+     ShowMessage('El sueldo mayor es:'+FloatToStr(mayor));
+     aTEmpleados.cerrar();
 end;
 
 end.

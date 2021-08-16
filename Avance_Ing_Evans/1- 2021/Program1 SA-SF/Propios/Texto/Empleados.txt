@@ -1,0 +1,5 @@
+Juan Perez H Tecnico 500 $us
+Josefina Mojica M Secretaria 200 $us
+Maria Nuñez M Experto 300 $us
+Marco Condori H Jefe 1000 $us
+Ana Maria M Profesional 800 $us

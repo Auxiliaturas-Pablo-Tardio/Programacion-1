@@ -31,7 +31,7 @@
         <PackageName Value="LCL"/>
       </Item1>
     </RequiredPackages>
-    <Units Count="4">
+    <Units Count="6">
       <Unit0>
         <Filename Value="PBinarioAlumnos.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -54,6 +54,16 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="UPersonaRecord"/>
       </Unit3>
+      <Unit4>
+        <Filename Value="uarchivoempleados.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UArchivoEmpleados"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="uempleadorecord.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UEmpleadoRecord"/>
+      </Unit5>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

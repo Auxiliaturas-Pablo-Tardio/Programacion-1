@@ -62,6 +62,7 @@ const MAX_ELE = 1200;
        function extraerUltCaracter():char;//De la primer palabra
        function longitudMediaPal():Real;
        function nroPalabrasFinLetra(c:char):integer;
+       function obtenerPalPos(posABuscar:integer):string;
   end;
 implementation
 
@@ -221,6 +222,42 @@ begin
 
   end;
 Result:=cp;
+end;
+
+function Cadena.obtenerPalPos(posABuscar: integer): string;
+var i,cp:integer;
+     pal,palEncontrada:string;
+begin
+i:=1;
+cp:=0;
+pal:='';
+palEncontrada:='';
+while(i<=dim)do
+begin
+  //saltar espacios
+  while((i<=dim) and (elem[i]=' ' ))do
+  begin
+    i:=i+1;
+  end;
+  //el comienzo d emi palabra
+
+   pal:='';
+  //saltar diferentes de espacio
+  while((i<=dim) and (elem[i]<>' ' ))do
+  begin
+    pal:=pal+elem[i];
+    i:=i+1;
+  end;
+   cp:=cp+1;
+   if(cp=posABuscar)then
+   begin
+     palEncontrada:=pal;
+   end;
+
+end;
+Result:=palEncontrada;
+
+
 end;
 
 
