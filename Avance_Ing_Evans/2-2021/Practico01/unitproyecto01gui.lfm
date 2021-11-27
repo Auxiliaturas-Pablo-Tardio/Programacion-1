@@ -1,0 +1,30 @@
+object Form1: TForm1
+  Left = 1084
+  Height = 300
+  Top = 316
+  Width = 400
+  Caption = 'Form1'
+  DesignTimePPI = 120
+  Menu = MainMenu1
+  OnCreate = FormCreate
+  LCLVersion = '2.0.12.0'
+  object MainMenu1: TMainMenu
+    Left = 10
+    Top = 10
+    object MenuItem1: TMenuItem
+      Caption = 'PracticoU1'
+      object MenuItem2: TMenuItem
+        Caption = 'Ejecicio 01'
+        OnClick = MenuItem2Click
+      end
+      object MenuItem3: TMenuItem
+        Caption = 'Ejercicio02'
+        OnClick = MenuItem3Click
+      end
+      object MenuItem4: TMenuItem
+        Caption = 'Ejercicio17'
+        OnClick = MenuItem4Click
+      end
+    end
+  end
+end

@@ -6,27 +6,38 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Menus,
-  uTexto, UCadena;
+  ExtCtrls, uTexto, UCadena;
 
 type
 
   { TForm1 }
 
   TForm1 = class(TForm)
+    ButtonDesencriptarSus: TButton;
+    ButtonEncriptarSus: TButton;
+    ButtonDes: TButton;
+    ButtonEncriptar: TButton;
     Ejercicio7: TButton;
     cargarArchivoTexto: TButton;
+    ListBox1: TListBox;
     MainMenu1: TMainMenu;
     MenuItem1: TMenuItem;
     MenuItem2: TMenuItem;
 
+    procedure ButtonDesencriptarSusClick(Sender: TObject);
+    procedure ButtonEncriptarSusClick(Sender: TObject);
+    procedure ButtonDesClick(Sender: TObject);
+    procedure ButtonEncriptarClick(Sender: TObject);
     procedure Ejercicio7Click(Sender: TObject);
     procedure cargarArchivoTextoClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure ListBox1Click(Sender: TObject);
     procedure MenuItem2Click(Sender: TObject);
   private
 
   public
       miAT:Texto;
+      objetoTexto:Texto;
       aTEmpleados:Texto;
   end;
 
@@ -110,6 +121,42 @@ begin
  miAT.cerrar();
 end;
 
+procedure TForm1.ButtonEncriptarClick(Sender: TObject);
+begin
+  objetoTexto.cifrar01();
+end;
+
+procedure TForm1.ButtonDesClick(Sender: TObject);
+begin
+  objetoTexto.descifrar01();
+end;
+
+procedure TForm1.ButtonEncriptarSusClick(Sender: TObject);
+begin
+  objetoTexto.cifrarSustitucion();
+  objetoTexto.abrir();
+   ListBox1.items.Clear;
+  while(not objetoTexto.fin()) DO
+  begin
+       ListBox1.Items.Add(objetoTexto.leerLinea());
+  end;
+objetoTexto.cerrar();
+end;
+
+procedure TForm1.ButtonDesencriptarSusClick(Sender: TObject);
+var linea: string;
+begin
+  objetoTexto.descifrarSustitucion();
+  ListBox1.items.Clear;
+  objetoTexto.abrir();
+  while(not objetoTexto.fin()) do
+  begin
+      linea:= objetoTexto.leerLinea();
+      ListBox1.Items.add(linea);
+  end;
+  objetoTexto.cerrar();
+end;
+
 
 
 procedure TForm1.FormCreate(Sender: TObject);
@@ -133,6 +180,21 @@ begin
    aTEmpleados.escribirLinea('Marco Condori H Jefe 1000 $us');
    aTEmpleados.escribirLinea('Ana Maria M Profesional 800 $us');
    aTEmpleados.cerrar();
+
+
+   objetoTexto:=Texto.create();
+   objetoTexto.setNom('Encriptacion');
+   objetoTexto.setExt('txt');
+   objetoTexto.crear();
+   objetoTexto.escribirLinea('Hola que tal');
+   objetoTexto.escribirLinea('Como estas');
+   objetoTexto.escribirLinea('QUE BIEN');
+   objetoTexto.cerrar();
+end;
+
+procedure TForm1.ListBox1Click(Sender: TObject);
+begin
+
 end;
 
 procedure TForm1.MenuItem2Click(Sender: TObject);
