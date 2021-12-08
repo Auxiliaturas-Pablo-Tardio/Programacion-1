@@ -35,6 +35,7 @@ type
        //Modelo Intercalar Vectores
        procedure intercalar3Vectores(a,b,c:vector);
        function insertarIntercalado(i:Integer;v:vector):Integer;
+       procedure intercalar3VectoresOrdenados(a,b,c: vector);
 
 
   end;
@@ -322,6 +323,56 @@ begin
           i:=i+1;
        end;
    Result:=i;
+end;
+
+procedure vector.intercalar3VectoresOrdenados(a, b, c: vector);
+var ia,ib,ic:integer;
+
+begin
+  ia:=1;
+  ib:=1;
+  ic:=1;
+  while ((ia<=a.getDim()) OR (ib<=b.getDim()) OR (ic<= c.getDim()))  do
+  begin
+      if( ia<=a.getDim()) then
+           begin
+      if(
+      ( (a.getElem(ia)<= b.getElem(ib) ) or not (  ib<=b.getDim() ))
+      and( (a.getElem(ia) <= c.getElem(ic)) or not( ic<=c.getDim() )               )
+      ) then
+      begin
+
+           insertarElem(a.getElem(ia));
+           ia:=ia+1;
+           end;
+      end;
+       if( ib<=b.getDim()) then
+           begin
+      if(
+      (   (b.getElem(ib)<= a.getElem(ia)  )  or not ( ia<=a.getDim() ))
+      and( ( b.getElem(ib) <= c.getElem(ic)) or not ( ic <=c.getDim()) )
+      ) then
+      begin
+
+           insertarElem(b.getElem(ib));
+           ib:=ib+1;
+           end;
+      end;
+       if( ic<=c.getDim()) then
+           begin
+              if(
+      (   (c.getElem(ic)<= a.getElem(ia)  )  or not ( ia<=a.getDim() ))
+      and( ( c.getElem(ic) <= b.getElem(ib)) or not ( ib <=b.getDim()) )
+      )  then
+              begin
+
+           insertarElem(c.getElem(ic));
+           ic:=ic+1;
+           end;
+      end;
+
+  end;
+
 end;
 
 

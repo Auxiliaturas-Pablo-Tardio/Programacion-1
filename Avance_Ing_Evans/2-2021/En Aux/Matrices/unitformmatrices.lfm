@@ -1,0 +1,53 @@
+object Form1: TForm1
+  Left = 573
+  Height = 300
+  Top = 216
+  Width = 556
+  Caption = 'Form1'
+  ClientHeight = 275
+  ClientWidth = 556
+  DesignTimePPI = 120
+  Menu = MainMenu1
+  OnCreate = FormCreate
+  LCLVersion = '2.0.12.0'
+  object StringGrid1: TStringGrid
+    Left = 10
+    Height = 205
+    Top = 10
+    Width = 494
+    TabOrder = 0
+  end
+  object Cargar: TButton
+    Left = 112
+    Height = 31
+    Top = 240
+    Width = 94
+    Caption = 'Cargar'
+    OnClick = CargarClick
+    TabOrder = 1
+  end
+  object DescargarButtonn: TButton
+    Left = 256
+    Height = 31
+    Top = 240
+    Width = 94
+    Caption = 'DescargarButtonn'
+    OnClick = DescargarButtonnClick
+    TabOrder = 2
+  end
+  object MainMenu1: TMainMenu
+    Left = 504
+    Top = 48
+    object MenuItem1: TMenuItem
+      Caption = 'Practico'
+      object MenuItem2: TMenuItem
+        Caption = 'Ej 6 SumarBloque'
+        OnClick = MenuItem2Click
+      end
+      object MenuItem3: TMenuItem
+        Caption = 'Ej3  Prom TID'
+        OnClick = MenuItem3Click
+      end
+    end
+  end
+end

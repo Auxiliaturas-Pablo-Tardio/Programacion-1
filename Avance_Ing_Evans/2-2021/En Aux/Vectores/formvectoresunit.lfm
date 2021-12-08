@@ -72,5 +72,13 @@ object Form1: TForm1
         OnClick = MenuItem9Click
       end
     end
+    object MenuItem10: TMenuItem
+      Caption = 'Practico2'
+      OnClick = MenuItem10Click
+      object MenuItem11: TMenuItem
+        Caption = 'IntercalarOrdenado'
+        OnClick = MenuItem11Click
+      end
+    end
   end
 end

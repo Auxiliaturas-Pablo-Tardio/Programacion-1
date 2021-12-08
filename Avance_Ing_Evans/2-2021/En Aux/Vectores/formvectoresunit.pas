@@ -17,6 +17,8 @@ type
     Cargar: TButton;
     MainMenu1: TMainMenu;
     MenuItem1: TMenuItem;
+    MenuItem10: TMenuItem;
+    MenuItem11: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
@@ -29,6 +31,8 @@ type
     procedure Button1Click(Sender: TObject);
     procedure CargarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure MenuItem10Click(Sender: TObject);
+    procedure MenuItem11Click(Sender: TObject);
     procedure MenuItem2Click(Sender: TObject);
     procedure MenuItem3Click(Sender: TObject);
     procedure MenuItem5Click(Sender: TObject);
@@ -71,6 +75,24 @@ end;
 procedure TForm1.FormCreate(Sender: TObject);
 begin
   v:=vector.crear;
+end;
+
+procedure TForm1.MenuItem10Click(Sender: TObject);
+begin
+
+end;
+
+procedure TForm1.MenuItem11Click(Sender: TObject);
+var a,b,c:vector ;
+begin
+  a:=vector.Create;
+  b:=vector.Create;
+  c:=vector.create;
+  a.cargarElem();
+   b.cargarElem();
+   c.cargarElem();
+  v.intercalar3VectoresOrdenados(a,b,c);
+
 end;
 
 procedure TForm1.MenuItem2Click(Sender: TObject);
