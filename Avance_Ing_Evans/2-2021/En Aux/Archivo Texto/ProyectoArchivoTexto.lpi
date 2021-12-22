@@ -6,7 +6,7 @@
     <General>
       <SessionStorage Value="InProjectDir"/>
       <MainUnit Value="0"/>
-      <Title Value="ProjectMatrices"/>
+      <Title Value="ProyectoArchivoTexto"/>
       <Scaled Value="True"/>
       <ResourceType Value="res"/>
       <UseXPManifest Value="True"/>
@@ -31,36 +31,30 @@
         <PackageName Value="LCL"/>
       </Item1>
     </RequiredPackages>
-    <Units Count="4">
+    <Units Count="3">
       <Unit0>
-        <Filename Value="ProjectMatrices.lpr"/>
+        <Filename Value="ProyectoArchivoTexto.lpr"/>
         <IsPartOfProject Value="True"/>
       </Unit0>
       <Unit1>
-        <Filename Value="unitformmatrices.pas"/>
+        <Filename Value="unitformarchivotexto.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="Form1"/>
-        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="UnitFormMatrices"/>
+        <UnitName Value="UnitFormArchivoTexto"/>
       </Unit1>
       <Unit2>
-        <Filename Value="umatriz.pas"/>
+        <Filename Value="uarchivotexto.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="UMatriz"/>
+        <UnitName Value="UArchivoTexto"/>
       </Unit2>
-      <Unit3>
-        <Filename Value="umatrizreal.pas"/>
-        <IsPartOfProject Value="True"/>
-        <UnitName Value="UMatrizReal"/>
-      </Unit3>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
     <Version Value="11"/>
     <PathDelim Value="\"/>
     <Target>
-      <Filename Value="ProjectMatrices"/>
+      <Filename Value="ProyectoArchivoTexto"/>
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>

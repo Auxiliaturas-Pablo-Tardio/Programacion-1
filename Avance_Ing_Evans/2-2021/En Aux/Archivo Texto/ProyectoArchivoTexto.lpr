@@ -1,4 +1,4 @@
-program ProjectMatrices;
+program ProyectoArchivoTexto;
 
 {$mode objfpc}{$H+}
 
@@ -7,7 +7,7 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, UnitFormMatrices, UMatriz, UMatrizReal
+  Forms, UnitFormArchivoTexto, UArchivoTexto
   { you can add units after this };
 
 {$R *.res}

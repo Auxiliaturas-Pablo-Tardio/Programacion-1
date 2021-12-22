@@ -30,6 +30,7 @@ type
       procedure setFilas(fil:integer);
       procedure setColumnas(cols:integer);
       function promedioTID():Real;
+
   end;
 
 implementation
@@ -134,6 +135,7 @@ begin
 prom:=s/n;
 Result := prom;
 end;
+
 
 end.
 

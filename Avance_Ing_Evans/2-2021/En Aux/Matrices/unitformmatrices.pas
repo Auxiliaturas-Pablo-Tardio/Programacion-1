@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Grids, StdCtrls, Menus,
-  UMatriz;
+  UMatriz,UMatrizReal;
 
 type
 
@@ -21,16 +21,21 @@ type
     MenuItem1: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
+    MenuItem4: TMenuItem;
+    MenuItem5: TMenuItem;
     StringGrid1: TStringGrid;
     procedure CargarClick(Sender: TObject);
     procedure DescargarButtonnClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure MenuItem2Click(Sender: TObject);
     procedure MenuItem3Click(Sender: TObject);
+    procedure MenuItem4Click(Sender: TObject);
+    procedure MenuItem5Click(Sender: TObject);
   private
    procedure descargar();
   public
    m:Matriz;
+   mReal:MatrizReal;
   end;
 
 var
@@ -50,7 +55,7 @@ end;
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
-
+  mReal:=MatrizReal.crear();
 end;
 
 procedure TForm1.MenuItem2Click(Sender: TObject);
@@ -71,6 +76,36 @@ begin
   ShowMessage(FloatToStr(a));
 
 
+end;
+
+procedure TForm1.MenuItem4Click(Sender: TObject);
+begin
+
+end;
+
+procedure TForm1.MenuItem5Click(Sender: TObject);
+var f,c,i,j:integer;
+
+begin
+  mReal.cargar();
+    mReal.inversaPorGauss();
+  f:=mReal.getFilas();
+  c:=mReal.getCols();
+  StringGrid1.RowCount:=f;
+  StringGrid1.ColCount:=c;
+  for i:=1 to f do
+  begin
+    for j:=1 to c do
+    begin
+      StringGrid1.Cells[j-1,i-1]:=FloatToStr(mReal.getElem(i,j));
+    end;
+  end;
+
+
+
+
+
+//m.inversaPorGauss():
 end;
 
 procedure TForm1.CargarClick(Sender: TObject);
