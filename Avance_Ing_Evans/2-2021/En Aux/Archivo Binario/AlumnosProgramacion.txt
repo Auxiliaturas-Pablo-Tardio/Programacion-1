@@ -1,0 +1,5 @@
+CI  │  Nombre   │  Domicilio
+444  │  Alumno04  │ Av. Lujan
+333  │  Alumno03  │ Av. Santos Dumont
+222  │  Alumno02  │ Av. Centenario
+111  │  Alumno01  │ Av. Busch

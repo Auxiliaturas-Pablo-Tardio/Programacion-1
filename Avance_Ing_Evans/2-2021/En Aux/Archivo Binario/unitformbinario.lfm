@@ -1,0 +1,100 @@
+object Form1: TForm1
+  Left = 784
+  Height = 568
+  Top = 111
+  Width = 726
+  Caption = 'Form1'
+  ClientHeight = 543
+  ClientWidth = 726
+  DesignTimePPI = 120
+  Menu = MainMenu1
+  OnCreate = FormCreate
+  LCLVersion = '2.0.12.0'
+  object Memo1: TMemo
+    Left = 40
+    Height = 313
+    Top = 96
+    Width = 632
+    Lines.Strings = (
+      '----'
+    )
+    OnChange = Memo1Change
+    TabOrder = 0
+  end
+  object Edit1: TEdit
+    Left = 72
+    Height = 28
+    Top = 496
+    Width = 504
+    TabOrder = 1
+    Text = 'Edit1'
+  end
+  object MainMenu1: TMainMenu
+    Left = 8
+    Top = 8
+    object MenuItem1: TMenuItem
+      Caption = 'Binario Alumnos'
+      object MenuItem2: TMenuItem
+        Caption = 'a)Crear Base'
+        OnClick = MenuItem2Click
+      end
+      object MenuItem3: TMenuItem
+        Caption = 'a) acceder'
+        OnClick = MenuItem3Click
+      end
+      object MenuItem6: TMenuItem
+        Caption = 'b) agregarDatos Nuevo'
+        OnClick = MenuItem6Click
+      end
+      object MenuItem7: TMenuItem
+        Caption = 'g) Texto De Binario'
+        OnClick = MenuItem7Click
+      end
+      object MenuItem8: TMenuItem
+        Caption = 'i) OrdenarPorNombre'
+        OnClick = MenuItem8Click
+      end
+      object MenuItem9: TMenuItem
+        Caption = 'j) ordenarPorRegistro'
+        OnClick = MenuItem9Click
+      end
+      object MenuItem17: TMenuItem
+        Caption = 'borrar por registro'
+        OnClick = MenuItem17Click
+      end
+    end
+    object MenuItem4: TMenuItem
+      Caption = 'Auxiliares'
+      object MenuItem5: TMenuItem
+        Caption = 'Mostrar'
+        OnClick = MenuItem5Click
+      end
+    end
+    object MenuItem10: TMenuItem
+      Caption = 'Binario Empleados'
+      object MenuItem11: TMenuItem
+        Caption = 'siguiente'
+        OnClick = MenuItem11Click
+      end
+      object MenuItem12: TMenuItem
+        Caption = 'anterior'
+      end
+      object MenuItem13: TMenuItem
+        Caption = 'CrearBase'
+        OnClick = MenuItem13Click
+      end
+      object MenuItem14: TMenuItem
+        Caption = 'Separar Mujeres'
+        OnClick = MenuItem14Click
+      end
+      object MenuItem15: TMenuItem
+        Caption = 'MOstrar todo'
+        OnClick = MenuItem15Click
+      end
+      object MenuItem16: TMenuItem
+        Caption = 'Mayor Sueldo'
+        OnClick = MenuItem16Click
+      end
+    end
+  end
+end

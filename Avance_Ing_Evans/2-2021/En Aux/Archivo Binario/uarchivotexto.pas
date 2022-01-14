@@ -5,7 +5,7 @@ unit UArchivoTexto;
 interface
 
 uses
-  Classes, SysUtils,UArchivoFicheroReal, Dialogs;
+  Classes, SysUtils, Dialogs;
 type
 
   { Texto }
@@ -32,7 +32,7 @@ type
                  function getLineaDePos(pos:integer):string;
                  function nroDeLineas():integer;
                  procedure renombrar(nuevoNombre:String);
-                 function transferirRealesAArchivoReal():ArchivoReal;
+                 //function transferirRealesAArchivoReal():ArchivoReal;
   end;
 
 implementation
@@ -226,28 +226,28 @@ begin
    RenameFile(getNombreCompleto(),nuevoNombre+'.'+ext);
 end;
 
-function Texto.transferirRealesAArchivoReal(): ArchivoReal;
-var s:string;
-    rx:Real;
-    fReal:ArchivoReal;
-begin
-fReal:=ArchivoReal.crear('numeros','dat');
- abrir();
-  while(not fin())do
-  begin
-    //leo la linea que contiene el real
-     s:=leerLinea();
-     ShowMessage(s);
-     //Transformar esa linea  a un real
-     rx:=StrToFloat(s);
-     //copiar el real a mi archivoReal
-     fReal.escribirReal(rx);
-
-  end;
-  cerrar();
-  fReal.cerrar();
-  Result:=fReal;
-end;
+//function Texto.transferirRealesAArchivoReal(): ArchivoReal;
+//var s:string;
+//    rx:Real;
+//    fReal:ArchivoReal;
+//begin
+//fReal:=ArchivoReal.crear('numeros','dat');
+// abrir();
+//  while(not fin())do
+//  begin
+//    //leo la linea que contiene el real
+//     s:=leerLinea();
+//     ShowMessage(s);
+//     //Transformar esa linea  a un real
+//     rx:=StrToFloat(s);
+//     //copiar el real a mi archivoReal
+//     fReal.escribirReal(rx);
+//
+//  end;
+//  cerrar();
+//  fReal.cerrar();
+//  Result:=fReal;
+//end;
 
 end.
 

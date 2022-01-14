@@ -6,7 +6,7 @@
     <General>
       <SessionStorage Value="InProjectDir"/>
       <MainUnit Value="0"/>
-      <Title Value="ProyectoArchivoTexto"/>
+      <Title Value="proyetoArchivoBinario"/>
       <Scaled Value="True"/>
       <ResourceType Value="res"/>
       <UseXPManifest Value="True"/>
@@ -31,36 +31,46 @@
         <PackageName Value="LCL"/>
       </Item1>
     </RequiredPackages>
-    <Units Count="4">
+    <Units Count="6">
       <Unit0>
-        <Filename Value="ProyectoArchivoTexto.lpr"/>
+        <Filename Value="proyetoArchivoBinario.lpr"/>
         <IsPartOfProject Value="True"/>
       </Unit0>
       <Unit1>
-        <Filename Value="unitformarchivotexto.pas"/>
+        <Filename Value="unitformbinario.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="Form1"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="UnitFormArchivoTexto"/>
+        <UnitName Value="unitFormBinario"/>
       </Unit1>
       <Unit2>
-        <Filename Value="uarchivotexto.pas"/>
+        <Filename Value="uarchivobinarioalumnos.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="UArchivoTexto"/>
+        <UnitName Value="UArchivoBinarioAlumnos"/>
       </Unit2>
       <Unit3>
-        <Filename Value="uarchivoficheroreal.pas"/>
+        <Filename Value="urecordalumnos.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="UArchivoFicheroReal"/>
+        <UnitName Value="URecordAlumnos"/>
       </Unit3>
+      <Unit4>
+        <Filename Value="urecordempleados.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="URecordEmpleados"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="uarchivobinarioempleados.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UArchivoBinarioEmpleados"/>
+      </Unit5>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
     <Version Value="11"/>
     <PathDelim Value="\"/>
     <Target>
-      <Filename Value="ProyectoArchivoTexto"/>
+      <Filename Value="proyetoArchivoBinario"/>
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
